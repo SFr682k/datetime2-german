@@ -10,7 +10,8 @@ Required Packages: `datetime2`, `tracklang`
 This module is maintained.  
 Current maintainer is Sebastian Friedl.
 
-Example usage:
+Example usage:  
+
     \documentclass{article}
     \usepackage[german]{datetime2}
     \begin{document}
