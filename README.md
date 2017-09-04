@@ -40,7 +40,8 @@ Example usage:
 
 Move all `*.ldf` files to `TEXMF/tex/latex/datetime2-contrib/datetime2-german/`
 
-Documentation:
+Documentation:  
+
     pdflatex datetime2-german.dtx
     makeindex -s gind.ist datetime2-german.idx
     makeindex -s gglo.ist -o datetime2-german.gls datetime2-german.glo
