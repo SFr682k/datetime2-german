@@ -28,15 +28,23 @@
 
 \usepackage{alltt}
 \usepackage{graphicx}
+\usepackage{hologo}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[bookmarks,
             hyperindex=false,
             pdfauthor={Nicola L.C. Talbot, Sebastian Friedl},
             pdftitle={datetime2.sty German Module}]{hyperref}
+\usepackage{verbatim}
 
+\usepackage[p,space]{erewhon}
+\usepackage{sourcesanspro}
+\usepackage{inconsolata}
+\usepackage[utopia,vvarbb]{newtxmath}
 
-\CheckSum{243}
+\usepackage[left=4.50cm,right=2.75cm,top=3.25cm,bottom=2.75cm,nohead]{geometry}
+
+\CheckSum{343}
 
 \renewcommand*{\usage}[1]{\hyperpage{#1}}
 \renewcommand*{\main}[1]{\hyperpage{#1}}
@@ -58,9 +66,9 @@
 %
 %\MakeShortVerb{"}
 %
-%\title{German Module for datetime2 Package \\ {\large\url{https://github.com/SFr682k/datetime2-german}}}
+%\title{German Module for the \sty{datetime2} Package \\ {\large\url{https://github.com/SFr682k/datetime2-german}}}
 %\author{Nicola L. C. Talbot (inactive) \and Sebastian Friedl\footnote{\href{mailto:sfr682k@t-online.de}{\texttt{sfr682k@t-online.de}}}}
-%\date{2017-03-09 (v1.1)}
+%\date{2017-09-10 (v1.2)}
 %\maketitle
 %
 %
@@ -77,14 +85,93 @@
 % depending on the value of the \opt{useregional} setting.
 %\end{abstract}
 %
-%The current version of the date style is copied from \texttt{babel-german}'s \cs{today}.
-%
-%Actually, some of these settings are not correct. These settings will be changed
-%with the next version of this module.
 %
 %
-%Currently there is only a regionless style. This style currently doesn't check the \opt{showdow} setting. %New maintainers may want to add regional variants such as "de-DE"\slash"de-DE-numeric" and "de-AT"\slash"de-AT-numeric". This style currently doesn't check the \opt{showdow} setting.
-%New styles are in progress
+% Currently there is only a regionless style. \par
+% Actually, I think that it is not necessary to define variant styles (e.~g. "de-DE"\slash"de-DE-numeric" and "de-AT"\slash"de-AT-numeric") since there are --- as far as I know --- no differences in the \emph{format} of the date.
+% \par However, I'm only capable of standard German. If there \emph{are} differences in format and/or spelling, please create a feature request on GitHub or send me an e--mail. I would be very grateful, if some examples and/or a list of the weekdays' and months' spelling is/are also provided.
+%
+%
+% \tableofcontents
+% \clearpage
+%
+%
+%
+% \section{Installation}
+% Extract the language definition files first:
+% \begin{enumerate}
+%     \item
+%     Run \LaTeX\ over the file \texttt{datetime2-german.ins}: \\
+%     \verb|latex datetime2-german.ins|
+%     %
+%     \item
+%     Move all \texttt{*.ldf} files to \texttt{TEXMF/tex/latex/datetime2-contrib/datetime2-german/}
+% \end{enumerate}
+% Then, you can compile the documentation yourself by executing \\[\smallskipamount]
+%\verb|pdflatex datetime2-german.dtx| \\
+%\verb|makeindex -s gind.ist datetime2-german.idx| \\
+%\verb|makeindex -s gglo.ist -o datetime2-german.gls datetime2-german.glo| \\
+%\verb|pdflatex datetime2-german.dtx| \\
+%\verb|pdflatex datetime2-german.dtx| \\[\medskipamount]
+% or just use the precompiled documentation shipped with the sorce files. \\
+% In both cases, copy the files \texttt{datetime2-german.pdf} and \texttt{README.md} to \\
+% \texttt{TEXMF/doc/latex/datetime2-contrib/datetime2-german/}
+%
+%
+%
+% \section{Usage}
+% \textit{See the \sty{datetime2} documentation for further details} \\[\smallskipamount]
+% Loading the German module by passing the \texttt{german} option to the \sty{datetime2} package: \\[\smallskipamount]
+%\verb|\documentclass{article}| \\
+%\verb|\usepackage[german]{datetime2}| \\
+%\verb|\begin{document}| \\
+%\verb|\today| \\
+%\verb|\end{document}| \\[\medskipamount]
+% Loading the German module via \sty{babel} and passing the \texttt{german} option to the \verb|\documentclass| command (or to \sty{babel} directly): \\[\smallskipamount]
+%\verb|\documentclass[german]{article}| \\
+%\verb|\usepackage{babel}| \\
+%\verb|\usepackage[useregional]{datetime2}| \\
+%\verb|\begin{document}| \\
+%\verb|\today| \\
+%\verb|\end{document}| \\[\medskipamount]
+% Loading the German module when using \sty{polyglossia} by passing the \texttt{german} option to the \sty{datetime2} package: \\[\smallskipamount]
+%\verb|\documentclass{article}| \\
+%\verb|\usepackage{polyglossia}| \\
+%\verb|\setmainlanguage{german}| \\
+%\verb|\usepackage[german]{datetime2}| \\
+%\verb|\begin{document}| \\
+%\verb|\today| \\
+%\verb|\end{document}|
+%
+% \paragraph{\texttt{showdow}--option} Add the \texttt{showdow} option to the \sty{datetime2} package to show the weekday
+%
+% \paragraph{Abbreviated weekday and month names} Use the \verb|\DTMlangsetup[german]{abbr}| command to switch to abbreviated weekday and month names. \\
+% Switch back to the non--abbreviated version with \verb|\DTMlangsetup[german]{abbr=false}|
+%
+%
+%
+% \section{Style examples}
+% \begin{itemize}
+%    \item Non--numeric style: \\
+%    5. September 2017, 12:51:04 MESZ \\
+%    5. Sep. '17, 12:51:04 MESZ \hfill \textit{abbreviated version} \\
+%    Dienstag, 5. September 2017, 12:51:04 MESZ \hfill \textit{with \texttt{showdow} option} \\
+%    Di., 5. Sep. '17, 12:51:04 MESZ \hfill \textit{abbreviated version with \texttt{showdow} option}
+%    %
+%    \item Numeric style: \\
+%    05.09.2017, 12:51:04 MESZ \\
+%    05.09.17, 12:51:04 MESZ \hfill \textit{abbreviated version} \\
+%    Dienstag, 05.09.2017, 12:51:04 MESZ \hfill \textit{with \texttt{showdow} option} \\
+%    Di., 05.09.17, 12:51:04 MESZ \hfill \textit{abbreviated version with \texttt{showdow}}
+% \end{itemize}
+%
+%
+%
+% \section{License}
+% This material is subject to the LaTeX Project Public License. \\
+% See the copyright headers of the single files for further details.
+%
+%
 %
 %\StopEventually{%
 %\clearpage
@@ -101,12 +188,13 @@
 %\fi
 %\subsection{UTF-8}
 %This file contains the settings that use UTF-8 characters. This
-%file is loaded if XeLaTeX or LuaLaTeX are used. Please make sure
+%file is loaded if \hologo{XeLaTeX} or \hologo{LuaLaTeX} are used. Please make sure
 %your text editor is set to UTF-8 if you want to view this code.
 %\changes{1.0}{2015-03-27}{Initial release}
+%
 % Identify module
 %    \begin{macrocode}
-\ProvidesDateTimeModule{german-utf8}[2017/03/09 v1.1]
+\ProvidesDateTimeModule{german-utf8}[2017/09/10 v1.2]
 %    \end{macrocode}
 %\begin{macro}{\DTMgermanordinal}
 %    \begin{macrocode}
@@ -150,11 +238,43 @@
 %    \end{macrocode}
 %\end{macro}
 %
-%If abbreviated dates are supported, short month names should be
-%likewise provided.
+%\begin{macro}{\DTMgermanshortmonthname}
+% Abbreviated German month names.
+%\changes{1.2}{2017-09-10}{Short month names implemented}
+%    \begin{macrocode}
+\newcommand*{\DTMgermanshortmonthname}[1]{%
+  \ifcase#1
+  \or
+  Jan.%
+  \or
+  Feb.%
+  \or
+  März%
+  \or
+  Apr.%
+  \or  
+  Mai%
+  \or
+  Juni%
+  \or
+  Juli%
+  \or
+  Aug.%
+  \or
+  Sep.%
+  \or
+  Okt.%
+  \or
+  Nov.%
+  \or
+  Dez.%
+  \fi
+}
+%    \end{macrocode}
+%\end{macro}
 %
 %\begin{macro}{\DTMgermanweekdayname}
-%These are provided here but not currently used in the date format.
+%Provides weekday names
 %    \begin{macrocode}
 \newcommand*{\DTMgermanweekdayname}[1]{%
   \ifcase#1
@@ -176,6 +296,30 @@
 %    \end{macrocode}
 %\end{macro}
 %
+%\begin{macro}{\DTMgermanshortweekdayname}
+%Provides abbreviated weekday names
+%\changes{1.2}{2017-09-10}{Short weekday names implemented}
+%    \begin{macrocode}
+\newcommand*{\DTMgermanshortweekdayname}[1]{%
+  \ifcase#1
+  Mo.%
+  \or
+  Di.%
+  \or
+  Mi.%
+  \or
+  Do.%
+  \or
+  Fr.%
+  \or
+  Sa.%
+  \or
+  So.%
+  \fi
+}
+%    \end{macrocode}
+%\end{macro}
+%
 %\iffalse
 %    \begin{macrocode}
 %</datetime2-german-utf8.ldf>
@@ -188,20 +332,19 @@
 %\fi
 %\subsection{ASCII}
 %This file contains the settings that use \LaTeX\ commands for
-%non-ASCII characters. This should be input if neither XeLaTeX nor
-%LuaLaTeX are used. Even if the user has loaded \sty{inputenc} with
+%non-ASCII characters. This should be input if neither \hologo{XeLaTeX} nor
+%\hologo{LuaLaTeX} are used. Even if the user has loaded \sty{inputenc} with
 %"utf8", this file should still be used not the
 %\texttt{datetime2-german-utf8.ldf} file as the non-ASCII
 %characters are made active in that situation and would need
 %protecting against expansion.
 %\changes{1.0}{2015-03-27}{Initial release}
+%
 % Identify module
 %    \begin{macrocode}
-\ProvidesDateTimeModule{german-ascii}[2017/03/09 v1.1]
+\ProvidesDateTimeModule{german-ascii}[2017/09/10 v1.2]
 %    \end{macrocode}
 %
-%If abbreviated dates are supported, short month names should be
-%likewise provided.
 %\begin{macro}{\DTMgermanordinal}
 %    \begin{macrocode}
 \newcommand*{\DTMgermanordinal}[1]{%
@@ -244,8 +387,43 @@
 %    \end{macrocode}
 %\end{macro}
 %
+%\begin{macro}{\DTMgermanshortmonthname}
+% Abbreviated German month names.
+%\changes{1.2}{2017-09-10}{Short month names implemented}
+%    \begin{macrocode}
+\newcommand*{\DTMgermanshortmonthname}[1]{%
+  \ifcase#1
+  \or
+  Jan.%
+  \or
+  Feb.%
+  \or
+  M\protect\"arz%
+  \or
+  Apr.%
+  \or
+  Mai%
+  \or
+  Juni%
+  \or
+  Juli%
+  \or
+  Aug.%
+  \or
+  Sep.%
+  \or
+  Okt.%
+  \or
+  Nov.%
+  \or
+  Dez.%
+  \fi
+}
+%    \end{macrocode}
+%\end{macro}
+%
 %\begin{macro}{\DTMgermanweekdayname}
-%These are provided here but not currently used in the date format.
+%Provides weekday names
 %    \begin{macrocode}
 \newcommand*{\DTMgermanweekdayname}[1]{%
   \ifcase#1
@@ -262,6 +440,30 @@
   Samstag%
   \or
   Sonntag%
+  \fi
+}
+%    \end{macrocode}
+%\end{macro}
+%
+%\begin{macro}{\DTMgermanshortweekdayname}
+%Provides abbreviated weekday names
+%\changes{1.2}{2017-09-10}{Short weekday names implemented}
+%    \begin{macrocode}
+\newcommand*{\DTMgermanshortweekdayname}[1]{%
+  \ifcase#1
+  Mo.%
+  \or
+  Di.%
+  \or
+  Mi.%
+  \or
+  Do.%
+  \or
+  Fr.%
+  \or
+  Sa.%
+  \or
+  So.%
   \fi
 }
 %    \end{macrocode}
@@ -284,13 +486,13 @@
 %
 % Identify Module
 %    \begin{macrocode}
-\ProvidesDateTimeModule{german}[2017/03/09 v1.1]
+\ProvidesDateTimeModule{german}[2017/09/10 v1.2]
 %    \end{macrocode}
-% Need to find out if XeTeX or LuaTeX are being used.
+% Need to find out if \hologo{XeTeX} or \hologo{LuaTeX} are being used.
 %    \begin{macrocode}
 \RequirePackage{ifxetex,ifluatex}
 %    \end{macrocode}
-% XeTeX and LuaTeX natively support UTF-8, so load
+% \hologo{XeTeX} and \hologo{LuaTeX} natively support UTF-8, so load
 % \texttt{german-utf8} if either of those engines are used
 % otherwise load \texttt{german-ascii}.
 %    \begin{macrocode}
@@ -306,13 +508,19 @@
 %    \end{macrocode}
 %
 % Define the \texttt{german} style.
-% The time style is the same as the "default" style
-% provided by \sty{datetime2}. This may need correcting. 
 %
 % Allow the user a way of configuring the "german" and
 % "german-numeric" styles. This doesn't use the package wide
 % separators such as
 % \cs{dtm@datetimesep} in case other date formats are also required.
+%
+%\begin{macro}{\DTMgermandowdaysep}
+% The separator between weekday and day
+%    \begin{macrocode}
+\newcommand*{\DTMgermandowdaysep}{,\space}
+%    \end{macrocode}
+%\end{macro}
+%
 %\begin{macro}{\DTMgermandaymonthsep}
 % The separator between the day and month for the text format.
 %    \begin{macrocode}
@@ -331,7 +539,7 @@
 % The separator between the date and time blocks in the full format
 % (either text or numeric).
 %    \begin{macrocode}
-\newcommand*{\DTMgermandatetimesep}{\space}
+\newcommand*{\DTMgermandatetimesep}{,\space}
 %    \end{macrocode}
 %\end{macro}
 %
@@ -346,7 +554,7 @@
 %\begin{macro}{\DTMgermandatesep}
 % The separator for the numeric date format.
 %    \begin{macrocode}
-\newcommand*{\DTMgermandatesep}{/}
+\newcommand*{\DTMgermandatesep}{.}
 %    \end{macrocode}
 %\end{macro}
 %
@@ -368,9 +576,17 @@
 \DTMdefkey{german}{timesep}{\renewcommand*{\DTMgermantimesep}{#1}}
 %    \end{macrocode}
 %
-% TODO: provide a boolean key to switch between full and abbreviated
-% formats if appropriate. (I don't know how the date should be
-% abbreviated.)
+% 
+% Define a boolean key that can switch between full and abbreviated formats for
+% the month and day of week names in the text format.
+%    \begin{macrocode}
+\DTMdefboolkey{german}{abbr}[true]{}
+%    \end{macrocode}
+%
+% The default is full name
+%    \begin{macrocode}
+\DTMsetbool{german}{abbr}{false}
+%    \end{macrocode}
 %
 % Define a boolean key that determines if the time zone mappings
 % should be used.
@@ -402,41 +618,76 @@
 \DTMsetbool{german}{showyear}{true}
 %    \end{macrocode}
 %
-% Define the "german" style. (TODO: implement day of week?)
+% Define the "german" style.
 %\changes{1.1}{2017-03-09}{fixed bug in \cs{DTMDisplaydate}}
+%\changes{1.2}{2017-09-10}{Short month names implemented}
+%\changes{1.2}{2017-09-10}{Short weekday names implemented}
+%\changes{1.2}{2017-09-10}{Day of week implemented}
 %    \begin{macrocode}
 \DTMnewstyle
  {german}% label
  {% date style
    \renewcommand*\DTMdisplaydate[4]{%
+   	 \ifDTMshowdow
+   	   \ifnum##4>-1
+   	     \DTMifbool{german}{abbr}%
+   	     {\DTMgermanshortweekdayname{##4}}%
+   	     {\DTMgermanweekdayname{##4}}%
+   	     \DTMgermandowdaysep
+   	   \fi
+   	 \fi
+   	 %
      \DTMifbool{german}{showdayofmonth}%
      {\DTMgermanordinal{##3}\DTMgermandaymonthsep}%
      {}%
-     \DTMgermanmonthname{##2}%
+     %
+     \DTMifbool{german}{abbr}%
+     {\DTMgermanshortmonthname{##2}}%
+     {\DTMgermanmonthname{##2}}%
+     %
      \DTMifbool{german}{showyear}%
      {%
-       \DTMgermanmonthyearsep
-       \number##1 % space intended
+       \DTMgermanmonthyearsep%
+       \DTMifbool{german}{abbr}%
+       {'\DTMtwodigits{##1}}%
+       {\number##1 }% space intended
      }%
      {}%
    }%
    \renewcommand*\DTMDisplaydate[4]{%
+     \ifDTMshowdow
+       \ifnum##4>-1
+         \DTMifbool{german}{abbr}%
+         {\DTMgermanshortweekdayname{##4}}%
+         {\DTMgermanweekdayname{##4}}%
+         \DTMgermandowdaysep
+       \fi
+     \fi
+     %
      \DTMifbool{german}{showdayofmonth}%
-     {%
-        \DTMgermanordinal{##3}\DTMgermandaymonthsep
-        \DTMgermanmonthname{##2}%
-     }%
+     {\DTMgermanordinal{##3}\DTMgermandaymonthsep}%
+     {}%
+     %
+     \DTMifbool{german}{abbr}%
+     {\DTMgermanshortmonthname{##2}}%
      {\DTMgermanmonthname{##2}}%
+     %
      \DTMifbool{german}{showyear}%
      {%
-       \DTMgermanmonthyearsep
-       \number##1 % space intended
+       \DTMgermanmonthyearsep%
+       \DTMifbool{german}{abbr}%
+       {'\DTMtwodigits{##1}}%
+       {\number##1 }% space intended
      }%
      {}%
+    }
    }%
- }%
  {% time style (use default)
-   \DTMsettimestyle{default}%
+   \renewcommand*\DTMdisplaytime[3]{%
+   	\DTMtwodigits{##1}%
+   	\DTMgermantimesep\DTMtwodigits{##2}%
+   	\ifDTMshowseconds\DTMgermantimesep\DTMtwodigits{##3}\fi
+   }%
  }%
  {% zone style
    \DTMresetzones
@@ -477,22 +728,34 @@
 %    \end{macrocode}
 %
 % Define numeric style.
+%\changes{1.2}{2017-09-10}{Day of week implemented}
 %    \begin{macrocode}
 \DTMnewstyle
  {german-numeric}% label
  {% date style
     \renewcommand*\DTMdisplaydate[4]{%
+      \ifDTMshowdow
+        \ifnum##4>-1
+          \DTMifbool{german}{abbr}%
+          {\DTMgermanshortweekdayname{##4}}%
+          {\DTMgermanweekdayname{##4}}%
+          \DTMgermandowdaysep
+        \fi
+      \fi
+      %
       \DTMifbool{german}{showdayofmonth}%
       {%
-        \number##3 % space intended
+        \DTMtwodigits{##3}%
         \DTMgermandatesep
       }%
       {}%
-      \number##2 % space intended
+      \DTMtwodigits{##2}%
       \DTMifbool{german}{showyear}%
       {%
-        \DTMgermandatesep
-        \number##1 % space intended
+      	\DTMgermandatesep%
+      	\DTMifbool{german}{abbr}%
+      	{\DTMtwodigits{##1}}%
+      	{\number##1 }% space intended
       }%
       {}%
     }%
@@ -500,7 +763,7 @@
  }%
  {% time style
     \renewcommand*\DTMdisplaytime[3]{%
-      \number##1
+      \DTMtwodigits{##1}%
       \DTMgermantimesep\DTMtwodigits{##2}%
       \ifDTMshowseconds\DTMgermantimesep\DTMtwodigits{##3}\fi
     }%
@@ -537,10 +800,11 @@
 % The time zone mappings are set through this command, which can be
 % redefined if extra mappings are required or mappings need to be
 % removed.
+%\changes{1.2}{2017-09-10}{German time zone names (ME[S]Z)}
 %    \begin{macrocode}
 \newcommand*{\DTMgermanzonemaps}{%
-  \DTMdefzonemap{01}{00}{CET}%
-  \DTMdefzonemap{02}{00}{CEST}%
+  \DTMdefzonemap{01}{00}{MEZ}%
+  \DTMdefzonemap{02}{00}{MESZ}%
 }
 %    \end{macrocode}
 %\end{macro}
