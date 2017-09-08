@@ -29,6 +29,7 @@
 \usepackage{alltt}
 \usepackage{graphicx}
 \usepackage{hologo}
+\usepackage{multicol}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[bookmarks,
@@ -67,7 +68,7 @@
 %\MakeShortVerb{"}
 %
 %\title{German Module for the \sty{datetime2} Package \\ {\large\url{https://github.com/SFr682k/datetime2-german}}}
-%\author{Nicola L. C. Talbot (inactive) \and Sebastian Friedl\footnote{\href{mailto:sfr682k@t-online.de}{\texttt{sfr682k@t-online.de}}}}
+%\author{\begin{tabular}{cp{.05\textwidth}c} Nicola L. C. Talbot && Sebastian Friedl \\ (inactive) && {\normalsize\href{mailto:sfr682k@t-online.de}{\texttt{sfr682k@t-online.de}}} \end{tabular}}
 %\date{2017-09-10 (v1.2)}
 %\maketitle
 %
@@ -143,7 +144,7 @@
 %\verb|\today| \\
 %\verb|\end{document}|
 %
-% \paragraph{\texttt{showdow}--option} Add the \texttt{showdow} option to the \sty{datetime2} package to show the weekday
+% \paragraph{\opt{showdow}--option} Pass the \opt{showdow} option to the \sty{datetime2} package to show the weekday
 %
 % \paragraph{Abbreviated weekday and month names} Use the \verb|\DTMlangsetup[german]{abbr}| command to switch to abbreviated weekday and month names. \\
 % Switch back to the non--abbreviated version with \verb|\DTMlangsetup[german]{abbr=false}|
@@ -155,20 +156,20 @@
 %    \item Non--numeric style: \\
 %    5. September 2017, 12:51:04 MESZ \\
 %    5. Sep. '17, 12:51:04 MESZ \hfill \textit{abbreviated version} \\
-%    Dienstag, 5. September 2017, 12:51:04 MESZ \hfill \textit{with \texttt{showdow} option} \\
-%    Di., 5. Sep. '17, 12:51:04 MESZ \hfill \textit{abbreviated version with \texttt{showdow} option}
+%    Dienstag, 5. September 2017, 12:51:04 MESZ \hfill \textit{with \opt{showdow} option} \\
+%    Di., 5. Sep. '17, 12:51:04 MESZ \hfill \textit{abbreviated version with \opt{showdow} option}
 %    %
 %    \item Numeric style: \\
 %    05.09.2017, 12:51:04 MESZ \\
 %    05.09.17, 12:51:04 MESZ \hfill \textit{abbreviated version} \\
-%    Dienstag, 05.09.2017, 12:51:04 MESZ \hfill \textit{with \texttt{showdow} option} \\
-%    Di., 05.09.17, 12:51:04 MESZ \hfill \textit{abbreviated version with \texttt{showdow}}
+%    Dienstag, 05.09.2017, 12:51:04 MESZ \hfill \textit{with \opt{showdow} option} \\
+%    Di., 05.09.17, 12:51:04 MESZ \hfill \textit{abbreviated version with \opt{showdow} option}
 % \end{itemize}
 %
 %
 %
 % \section{License}
-% This material is subject to the LaTeX Project Public License. \\
+% This material is subject to the \LaTeX\ Project Public License, Version 1.3c or later. \\
 % See the copyright headers of the single files for further details.
 %
 %
