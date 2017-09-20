@@ -1,3 +1,6 @@
+**You're on master branch**  
+For stable releases, see the "releases" section or the "stable" branch
+
 # datetime2-german
 German Language Module for `datetime2` Package  
 
