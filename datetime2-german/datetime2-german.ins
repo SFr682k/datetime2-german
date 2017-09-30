@@ -19,12 +19,16 @@
 
  This work consists of the files datetime2-german.dtx and
  datetime2-german.ins and the derived files
- datetime2-german-utf8.ldf, datetime2-german-ascii.ldf and
- datetime2-german.ldf.
+ datetime2-german-utf8.ldf, datetime2-german-ascii.ldf,
+ datetime2-german.ldf, datetime2-de-DE.ldf,
+ datetime2-de-AT.ldf and datetime2-de-CH.ldf
 
 \endpreamble
 
 \askforoverwritefalse
+
+
+
 
 \generate
 {%
@@ -58,6 +62,48 @@
    \from{datetime2-german.dtx}{datetime2-german.ldf,package}%
   }%
 }
+
+
+
+
+\generate
+{%
+	\file
+	{datetime2-de-DE.ldf}%
+	{%
+		\usepreamble\defaultpreamble
+		\usepostamble\defaultpostamble
+		\from{datetime2-german.dtx}{datetime2-de-DE.ldf,package}%
+	}%
+}
+
+
+
+\generate
+{%
+	\file
+	{datetime2-de-AT.ldf}%
+	{%
+		\usepreamble\defaultpreamble
+		\usepostamble\defaultpostamble
+		\from{datetime2-german.dtx}{datetime2-de-AT.ldf,package}%
+	}%
+}
+
+
+
+\generate
+{%
+	\file
+	{datetime2-de-CH.ldf}%
+	{%
+		\usepreamble\defaultpreamble
+		\usepostamble\defaultpostamble
+		\from{datetime2-german.dtx}{datetime2-de-CH.ldf,package}%
+	}%
+}
+
+
 
 \endbatchfile
 

@@ -1,43 +1,17 @@
-**You're on master branch**  
-For stable releases, see the "releases" section or the "stable" branch
-
 # datetime2-german
 German Language Module for `datetime2` Package  
 
 Authors: Nicola L. C. Talbot (inactive), Sebastian Friedl  
 
-Licence: LPPL  
+Licence: LPPL 1.3c  
 
 Required Packages: `datetime2`, `tracklang`  
 
 This module is maintained.  
 Current maintainer is Sebastian Friedl.
 
-Example usage:  
 
-    \documentclass{article}
-    \usepackage[german]{datetime2}
-    \begin{document}
-    \today
-    \end{document}
-
-    \documentclass[german]{article}
-    \usepackage{babel}
-    \usepackage[useregional]{datetime2}
-    \begin{document}
-    \today
-    \end{document}
-
-    \documentclass{article}
-    \usepackage{polyglossia}
-    \setmainlanguage{german}
-    \usepackage[german]{datetime2}
-    \begin{document}
-    \today
-    \end{document}
-
-
-## INSTALLATION
+## Installation
 
 `latex datetime2-german.ins`
 
