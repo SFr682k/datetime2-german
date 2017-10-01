@@ -49,7 +49,7 @@
 
 \parindent0pt
 
-\CheckSum{1051}
+\CheckSum{1085}
 
 \renewcommand*{\usage}[1]{\hyperpage{#1}}
 \renewcommand*{\main}[1]{\hyperpage{#1}}
@@ -95,6 +95,9 @@
 % Currently there is a regionless style as well as variant styles ("de-DE", "de-AT" and "de-CH"). \\[\smallskipamount]
 % I'm only capable of German standard German. If I messed up anything in regards to format and/or spelling, or even a variant style with differences to the existing ones is missing, please create a feature request on GitHub or send me an e--mail. \\
 % I would be very grateful, if some examples and/or a list of the weekdays' and months' spelling is/are also provided.
+%
+% \bigskip
+% Thanks to Jürgen Spitzmüller for his valuable advice while developing Version 2.0 of this module.
 %
 %
 % \clearpage
@@ -402,11 +405,11 @@
   \or
   Jan.%
   \or
-  Febr.%
+  Feb.%
   \or
   März%
   \or
-  April%
+  Apr.%
   \or  
   Mai%
   \or
@@ -416,7 +419,7 @@
   \or
   Aug.%
   \or
-  Sep.%
+  Sept.%
   \or
   Okt.%
   \or
@@ -428,7 +431,6 @@
 %    \end{macrocode}
 %\end{macro}
 %
-%
 %\begin{macro}{\DTMdeATshortmonthname}
 %\changes{2.0}{2017-10-03}{Austrian short month names implemented}
 % Abbreviated Austrian German month names.
@@ -437,6 +439,41 @@
   \ifcase#1
   \or
   Jän.%
+  \or
+  Feb.%
+  \or
+  März%
+  \or
+  Apr.%
+  \or  
+  Mai%
+  \or
+  Juni%
+  \or
+  Juli%
+  \or
+  Aug.%
+  \or
+  Sept.%
+  \or
+  Okt.%
+  \or
+  Nov.%
+  \or
+  Dez.%
+  \fi
+}
+%    \end{macrocode}
+%\end{macro}
+%
+%\begin{macro}{\DTMdeCHshortmonthname}
+% Abbreviated Swiss German month names.
+%\changes{2.0}{2017-10-03}{Swiss German short month names implemented}
+%    \begin{macrocode}
+\newcommand*{\DTMdeCHshortmonthname}[1]{%
+  \ifcase#1
+  \or
+  Jan.%
   \or
   Febr.%
   \or
@@ -452,7 +489,7 @@
   \or
   Aug.%
   \or
-  Sep.%
+  Sept.%
   \or
   Okt.%
   \or
@@ -624,11 +661,11 @@
   \or
   Jan.%
   \or
-  Febr.%
+  Feb.%
   \or
   M\protect\"arz%
   \or
-  April%
+  Apr.%
   \or
   Mai%
   \or
@@ -638,7 +675,7 @@
   \or
   Aug.%
   \or
-  Sep.%
+  Sept.%
   \or
   Okt.%
   \or
@@ -657,13 +694,13 @@
 \newcommand*{\DTMdeATshortmonthname}[1]{%
   \ifcase#1
   \or
-  J\protect\"n.%
+  J\protect\"an.%
   \or
-  Febr.%
+  Feb.%
   \or
   M\protect\"arz%
   \or
-  April%
+  Apr.%
   \or
   Mai%
   \or
@@ -673,7 +710,7 @@
   \or
   Aug.%
   \or
-  Sep.%
+  Sept.%
   \or
   Okt.%
   \or
@@ -681,6 +718,41 @@
   \or
   Dez.%
   \fi
+}
+%    \end{macrocode}
+%\end{macro}
+%
+%\begin{macro}{\DTMdeCHshortmonthname}
+% Abbreviated Swiss German month names.
+%\changes{2.0}{2017-10-03}{Swiss German short month names implemented}
+%    \begin{macrocode}
+\newcommand*{\DTMdeCHshortmonthname}[1]{%
+	\ifcase#1
+	\or
+	Jan.%
+	\or
+	Febr.%
+	\or
+	M\protect\"arz%
+	\or
+	April%
+	\or
+	Mai%
+	\or
+	Juni%
+	\or
+	Juli%
+	\or
+	Aug.%
+	\or
+	Sept.%
+	\or
+	Okt.%
+	\or
+	Nov.%
+	\or
+	Dez.%
+	\fi
 }
 %    \end{macrocode}
 %\end{macro}
@@ -1965,7 +2037,7 @@
     {}%
     %
     \DTMifbool{de-CH}{abbr}%
-    {\DTMgermanshortmonthname{##2}}%
+    {\DTMdeCHshortmonthname{##2}}%
     {\DTMgermanmonthname{##2}}%
     %
     \DTMifbool{de-CH}{showyear}%
@@ -1990,7 +2062,7 @@
     {}%
     %
     \DTMifbool{de-CH}{abbr}%
-    {\DTMgermanshortmonthname{##2}}%
+    {\DTMdeCHshortmonthname{##2}}%
     {\DTMgermanmonthname{##2}}%
     %
     \DTMifbool{de-CH}{showyear}%

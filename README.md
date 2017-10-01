@@ -8,8 +8,9 @@ Licence: LPPL 1.3c
 Required Packages: `datetime2`, `tracklang`  
 
 This module is maintained.  
-Current maintainer is Sebastian Friedl.
+Current maintainer is Sebastian Friedl.  
 
+Thanks to Jürgen Spitzmüller for his valuable advice while developing Version 2.0 of this module.
 
 ## Installation
 
