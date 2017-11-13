@@ -73,7 +73,7 @@
 %
 %\title{German Module for the \sty{datetime2} Package \\ {\large\url{https://github.com/SFr682k/datetime2-german}}}
 %\author{\begin{tabular}{cp{.05\textwidth}c} Nicola L. C. Talbot && Sebastian Friedl \\ (inactive) && {\normalsize\href{mailto:sfr682k@t-online.de}{\texttt{sfr682k@t-online.de}}} \end{tabular}}
-%\date{2017-10-03 (v2.0)}
+%\date{2017-11-13 (v2.1)}
 %\maketitle
 %
 %
@@ -316,7 +316,7 @@
 %
 % Identify module
 %    \begin{macrocode}
-\ProvidesDateTimeModule{german-utf8}[2017/10/03 v2.0]
+\ProvidesDateTimeModule{german-utf8}[2017/11/13 v2.1]
 %    \end{macrocode}
 %\begin{macro}{\DTMgermanordinal}
 %    \begin{macrocode}
@@ -571,7 +571,7 @@
 %
 % Identify module
 %    \begin{macrocode}
-\ProvidesDateTimeModule{german-ascii}[2017/10/03 v2.0]
+\ProvidesDateTimeModule{german-ascii}[2017/11/13 v2.1]
 %    \end{macrocode}
 %
 %\begin{macro}{\DTMgermanordinal}
@@ -822,7 +822,7 @@
 %
 % Identify Module
 %    \begin{macrocode}
-\ProvidesDateTimeModule{german}[2017/10/03 v2.0]
+\ProvidesDateTimeModule{german}[2017/11/13 v2.1]
 %    \end{macrocode}
 % Need to find out if \hologo{XeTeX} or \hologo{LuaTeX} are being used.
 %    \begin{macrocode}
@@ -960,6 +960,7 @@
 %\changes{1.2}{2017-09-10}{Short month names implemented}
 %\changes{1.2}{2017-09-10}{Short weekday names implemented}
 %\changes{1.2}{2017-09-10}{Day of week implemented}
+%\changes{2.1}{2017-11-13}{Fixed strange spacing when switching languages}
 %    \begin{macrocode}
 \DTMnewstyle
  {german}% label
@@ -1017,7 +1018,7 @@
        {\number##1 }% space intended
      }%
      {}%
-    }
+    }%
    }%
  {% time style (use default)
    \renewcommand*\DTMdisplaytime[3]{%
@@ -1178,7 +1179,7 @@
     \DTMifcaseregional
     {}% do nothing
     {\DTMsetstyle{german}}%
-    {\DTMsetstyle{german-numeric}}
+    {\DTMsetstyle{german-numeric}}%
   }%
 }%
 %    \end{macrocode}
@@ -1206,7 +1207,7 @@
 %\fi
 % Identify Module
 %    \begin{macrocode}
-\ProvidesDateTimeModule{de-DE}[2017/10/03 v2.0]
+\ProvidesDateTimeModule{de-DE}[2017/11/13 v2.1]
 %    \end{macrocode}
 % Require the basic German module
 %    \begin{macrocode}
@@ -1559,7 +1560,7 @@
 %\fi
 % Identify Module
 %    \begin{macrocode}
-\ProvidesDateTimeModule{de-AT}[2017/10/03 v2.0]
+\ProvidesDateTimeModule{de-AT}[2017/11/13 v2.1]
 %    \end{macrocode}
 % Require the basic German module
 %    \begin{macrocode}
@@ -1732,7 +1733,7 @@
       \number##1 % space intended
     }%
     {}%
-  }
+  }%
 }%
 {% time style (use default)
   \renewcommand*\DTMdisplaytime[3]{%
@@ -1842,8 +1843,8 @@
 %    \begin{macrocode}
 \DTMifcaseregional
 {}% do nothing
-{\DTMsetstyle{de-AT}}
-{\DTMsetstyle{de-AT-numeric}}
+{\DTMsetstyle{de-AT}}%
+{\DTMsetstyle{de-AT-numeric}}%
 %    \end{macrocode}
 %
 % Redefine \cs{dategerman} (or \cs{date}\meta{dialect}) to prevent
@@ -1869,7 +1870,7 @@
     \DTMifcaseregional
     {}% do nothing
     {\DTMsetstyle{de-AT}}%
-    {\DTMsetstyle{de-AT-numeric}}
+    {\DTMsetstyle{de-AT-numeric}}%
   }%
 }%
 %    \end{macrocode}
@@ -1898,7 +1899,7 @@
 %\fi
 % Identify Module
 %    \begin{macrocode}
-\ProvidesDateTimeModule{de-CH}[2017/10/03 v2.0]
+\ProvidesDateTimeModule{de-CH}[2017/11/13 v2.1]
 %    \end{macrocode}
 % Require the basic German module
 %    \begin{macrocode}
@@ -2190,8 +2191,8 @@
 %    \begin{macrocode}
 \DTMifcaseregional
 {}% do nothing
-{\DTMsetstyle{de-CH}}
-{\DTMsetstyle{de-CH-numeric}}
+{\DTMsetstyle{de-CH}}%
+{\DTMsetstyle{de-CH-numeric}}%
 %    \end{macrocode}
 %
 % Redefine \cs{dategerman} (or \cs{date}\meta{dialect}) to prevent
@@ -2217,7 +2218,7 @@
     \DTMifcaseregional
     {}% do nothing
     {\DTMsetstyle{de-CH}}%
-    {\DTMsetstyle{de-CH-numeric}}
+    {\DTMsetstyle{de-CH-numeric}}%
   }%
 }%
 %    \end{macrocode}
