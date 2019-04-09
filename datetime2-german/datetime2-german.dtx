@@ -1613,7 +1613,7 @@
 %\begin{macro}{\DTMdeATdatesep}
 % The separator for the numeric date format.
 %    \begin{macrocode}
-\newcommand*{\DTMdeATdatesep}{-}
+\newcommand*{\DTMdeATdatesep}{.}
 %    \end{macrocode}
 %\end{macro}
 %
@@ -1786,19 +1786,28 @@
 {de-AT-numeric}% label
 {% date style
   \renewcommand*\DTMdisplaydate[4]{%
-    \DTMifbool{de-AT}{showyear}%
-    {%
-      \number##1 % space intended
-      \DTMdeATdatesep%
-    }%
-    {}%
-    %
-    \DTMtwodigits{##2}%
+    \ifDTMshowdow
+      \ifnum##4>-1
+        \DTMifbool{de-AT}{abbr}%
+        {\DTMgermanshortweekdayname{##4}}%
+        {\DTMgermanweekdayname{##4}}%
+        \DTMdeATdowdaysep
+      \fi
+    \fi
     %
     \DTMifbool{de-AT}{showdayofmonth}%
     {%
-      \DTMdeATdatesep%
       \DTMtwodigits{##3}%
+      \DTMdeATdatesep
+    }%
+    {}%
+    \DTMtwodigits{##2}%
+    \DTMdeATdatesep%
+    \DTMifbool{de-AT}{showyear}%
+    {%
+      \DTMifbool{de-AT}{abbr}%
+      {\DTMtwodigits{##1}}%
+      {\number##1 }% space intended
     }%
     {}%
   }%
